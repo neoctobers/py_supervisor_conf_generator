@@ -50,7 +50,7 @@ class Generator:
 
         path_to_conf = path_to_conf or '/etc/supervisor/conf.d/{name}.conf'.format(name=self._name)
 
-        xp.about_t('Generate', path_to_conf, 'for supervisor')
+        xp.about_t('Generating', path_to_conf, 'for supervisor')
 
         # name
         configs = list()
