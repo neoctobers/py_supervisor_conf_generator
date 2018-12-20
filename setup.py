@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="supervisor-conf-generator",
-    version="1.0.0",
+    version="2.0.0",
     author="@neoctobers",
     author_email="neoctobers@gmail.com",
     description="A supervisor config file generator.",
@@ -20,5 +20,6 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     install_requires=[
+        'xprint',
     ],
 )

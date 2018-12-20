@@ -48,9 +48,9 @@ class Generator:
         if self.__invalid_attributes:
             return None
 
-        file = path_to_conf or '/etc/supervisor/conf.d/{name}.conf'.format(name=self._name)
+        path_to_conf = path_to_conf or '/etc/supervisor/conf.d/{name}.conf'.format(name=self._name)
 
-        xp.about_t('Generate', file, 'for supervisor')
+        xp.about_t('Generate', path_to_conf, 'for supervisor')
 
         # name
         configs = list()
@@ -72,10 +72,10 @@ class Generator:
 
         # write
         configs = '\n'.join(configs)
-        with open(file, 'wb') as f:
+        with open(path_to_conf, 'wb') as f:
             f.write(configs.encode('utf-8'))
         xp.success()
         xp.wr(xp.Fore.LIGHTBLACK_EX + configs)
         xp.fx()
 
-        return file
+        return path_to_conf
