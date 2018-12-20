@@ -75,7 +75,6 @@ class Generator:
         with open(path_to_conf, 'wb') as f:
             f.write(configs.encode('utf-8'))
         xp.success()
-        xp.wr(xp.Fore.LIGHTBLACK_EX + configs)
-        xp.fx()
+        xp.plain_text(configs)
 
         return path_to_conf
