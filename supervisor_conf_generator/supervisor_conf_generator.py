@@ -44,7 +44,7 @@ class Generator:
             return 'NONE'
         return self._stdout_logfile or '/var/log/supervisor_{name}.log'.format(name=self._name)
 
-    def write(self, path_to_conf: str = None):
+    def write(self, path_to_conf: str = None, plain_to_console: bool = False):
         if self.__invalid_attributes:
             return None
 
@@ -75,6 +75,9 @@ class Generator:
         with open(path_to_conf, 'wb') as f:
             f.write(configs.encode('utf-8'))
         xp.success()
-        xp.plain_text(configs)
+
+        # plain to console
+        if plain_to_console:
+            xp.plain_text(configs)
 
         return path_to_conf
